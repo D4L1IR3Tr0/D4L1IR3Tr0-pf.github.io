@@ -11,14 +11,13 @@
     body {
         background-image: url("arplan2.jpeg");
         background-size: cover;
+        background-attachment: fixed;
         background-position: center;
         background-repeat: no-repeat;
-        margin: 0;
-        padding: 0;
-        margin-top: 5px;
+        overflow: hidden;
     }
 
-    #div1 {
+    #header {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -29,7 +28,7 @@
         background: linear-gradient(to bottom, #277183 0%, #061021 100%, #0c1d3a 100%);
     }
 
-    #div1 h1 {
+    #header h1 {
         font-family: "Arial Black", Gadget, sans-serif;
 
         letter-spacing: 2px;
@@ -43,10 +42,12 @@
 
     #div2{
         width: 100%;
-        height: 80vh; /* Ajustez la hauteur selon vos préférences */
+        height: 80vh;
     }
 
-    #div3{
+    #div1{
+        position: relative;
+        top: 50px;
         width: 75%;
         height: 90%;
         border: none;
@@ -63,10 +64,22 @@
 
     }
 
-    #div3 p{
+    #div1 p{
         font-family: Arial, Helvetica, sans-serif;
         padding-left: 10px;
-        font-size: 2vw;
+        font-size: 1.7vw;
+    }
+
+    #div1 a:link {
+        font-weight: bold;
+        padding-left: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.7vw;
+        color: #0b7979;
+
+    }
+    #div1 a:visited {
+        color: #f36011;
     }
 
 
@@ -122,6 +135,8 @@
     }
 
     iframe {
+        position: relative;
+        top: 50px;
         width: 75%;
         height: 80%;
         border: none;
@@ -147,22 +162,35 @@
             transform: translateX(-100%);
         }
     }
+
+    @media(max-height: 650px){
+        #header{
+            height: 100px;
+        }
+
+        #header h1{
+            font-size: 40px;
+        }
+    }
 </style>
-<div id="div1">
+
+
+<header id="header">
 
 <h1>Portfolio</h1>
 
-</div>
+</header>
 
-<div id="div3">
+
+<div id="div1">
     <p>
         Je m'appelle Mohamerd Ali Damergi. <br><br>
         Je suis etudiant a l'université de Clermont auvergne.<br><br>
         Ce portfolio contient certains des projets sur lesquels j’ai eu a travailler, qu’ils soient personnels ou dans le cadre de mes études.<br><br>
         J’ai essayé de mettre quelques projets de chaque type de discipline ainsi il y a de l’étude de base de donnée, des projets de simulation pseudo aléatoire, de la cryptographie, de la création de jeu en java, de la conception de site web en HTML et CSS, de la programmation de systèmes en C++...
-        <br><br> D’autres projets sont présent sur ma page Github: <br><br> <link href="google.com">https://github.com/D4L1IR3Tr0</link></p>
-</div>
+        <br><br> D’autres projets sont présent sur ma page GitHub:     <a href="https://github.com/D4L1IR3Tr0" target="_blank">D4L1IR3Tr0</a></p>
 
+</div>
 
 <div id="div2">
 <ul id="menu">
@@ -182,15 +210,18 @@
 
 </div>
 
+
+
 <script>
     function hideDiv() {
         // Obtenir la référence de la div
-        const div3 = document.getElementById('div3');
+        const description = document.getElementById('div1');
 
         // Modifier la propriété CSS pour masquer la div
-        div3.style.display = 'none';
+        description.style.display = 'none';
     }
 </script>
+
 
 </body>
 </html>
