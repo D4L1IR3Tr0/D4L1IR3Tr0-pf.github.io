@@ -8,11 +8,21 @@
 
 <style>
 
+    body {
+        background-image: url("arplan2.jpeg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        margin: 0;
+        padding: 0;
+        margin-top: 5px;
+    }
+
     #div1 {
         display: flex;
         align-items: center;
         justify-content: center;
-        height: 10%;
+        height: 6%;
         background: #061021;
         background: -moz-linear-gradient(top, #277183 0%, #061021 100%, #0c1d3a 100%);
         background: -webkit-linear-gradient(top, #277183 0%, #061021 100%, #0c1d3a 100%);
@@ -21,7 +31,7 @@
 
     #div1 h1 {
         font-family: "Arial Black", Gadget, sans-serif;
-        padding-top: 3%;
+
         letter-spacing: 2px;
         word-spacing: 2px;
         text-align: center;
@@ -31,18 +41,32 @@
         text-shadow: -5px 5px 0px #f36011, -10px 10px 0px #ffb600, -15px 15px 0px #219292;
           }
 
-    body {
-        background-image: url("arplan2.jpeg");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        overflow: hidden;
-        margin-top: 5px;
-    }
-
     #div2{
         width: 100%;
         height: 80vh; /* Ajustez la hauteur selon vos préférences */
+    }
+
+    #div3{
+        width: 75%;
+        height: 90%;
+        border: none;
+        margin: 20px;
+        display: block;
+        float: right;
+        border-radius: 30px;
+
+        /* Apply the background color with transparency */
+        background-color: rgba(255, 255, 255, 0.5);
+
+        /* Apply the blur effect */
+        backdrop-filter: blur(8px);
+
+    }
+
+    #div3 p{
+        font-family: Arial, Helvetica, sans-serif;
+        padding-left: 10px;
+        font-size: 2vw;
     }
 
 
@@ -65,16 +89,17 @@
         padding: 10px;
         margin: 5px;
         overflow: hidden;
+
     }
 
     li a {
+        font-family: Arial, Helvetica, sans-serif;
         display: block;
         text-align: left;
         text-decoration: none;
         color: #ffffff;
-        white-space: nowrap;
-        font-size: calc(10px + 1vw);
-        width: 100%;
+        font-size: 1.5vw;
+        width: 80%;
         transition: color 0.3s ease;
     }
     .x:hover{
@@ -94,12 +119,11 @@
     li:hover {
         border-radius: 10px;
         background-color: #f36011;
-        width: 100%;
     }
 
     iframe {
         width: 75%;
-        height: 90%;
+        height: 80%;
         border: none;
         margin: 20px;
         display: block;
@@ -130,26 +154,43 @@
 
 </div>
 
+<div id="div3">
+    <p>
+        Je m'appelle Mohamerd Ali Damergi. <br><br>
+        Je suis etudiant a l'université de Clermont auvergne.<br><br>
+        Ce portfolio contient certains des projets sur lesquels j’ai eu a travailler, qu’ils soient personnels ou dans le cadre de mes études.<br><br>
+        J’ai essayé de mettre quelques projets de chaque type de discipline ainsi il y a de l’étude de base de donnée, des projets de simulation pseudo aléatoire, de la cryptographie, de la création de jeu en java, de la conception de site web en HTML et CSS, de la programmation de systèmes en C++...
+        <br><br> D’autres projets sont présent sur ma page Github: <br><br> <link href="google.com">https://github.com/D4L1IR3Tr0</link></p>
+</div>
+
 
 <div id="div2">
 <ul id="menu">
-    <li><a class="x" href="1.pdf" target="content"><span class="marquee">Estimation pseudo aléatoire de Pi</span></a></li>
-    <li><a class="x" href="2.pdf" target="content"><span class="marquee">Simulateur pseudo aléatoire d’une population de lapins</span></a></li>
-    <li><a class="x" href="3.pdf" target="content"><span class="marquee">Simulateur pseudo aléatoire du jeu de la vie</span></a></li>
-    <li><a class="x" href="4.pdf" target="content"><span class="marquee">Cryptographie code de Cesar</span></a></li>
-    <li><a class="z"  href="5.pdf" target="content"><span class="marquee">Jeu de Puissance 4</span></a></li>
-    <li><a class="z" href="6.pdf" target="content"><span class="marquee">Site Web</span></a></li>
-    <li><a class="x" href="7.pdf" target="content"><span class="marquee">Distributeur Automatique de nourriture pour chat</span></a></li>
-    <li><a class="x" href="8.pdf" target="content"><span class="marquee">Véhicule a deux roues motrices</span></a></li>
-    <li><a class="y" href="9.pdf" target="content"><span class="marquee">Etude de la base de donnée de la société fictive AUVER</span></a></li>
-    <li><a class="x" href="10.pdf" target="content"><span class="marquee">Application IOS (transport de Clermont)</span></a></li>
+    <li><a class="x" href="1.pdf" target="content" onclick="hideDiv()"><span class="marquee">Estimation pseudo aléatoire de Pi</span></a></li>
+    <li><a class="x" href="2.pdf" target="content" onclick="hideDiv()"><span class="marquee">Simulateur pseudo aléatoire d’une population de lapins</span></a></li>
+    <li><a class="x" href="3.pdf" target="content" onclick="hideDiv()"><span class="marquee">Simulateur pseudo aléatoire du jeu de la vie</span></a></li>
+    <li><a class="x" href="4.pdf" target="content" onclick="hideDiv()"><span class="marquee">Cryptographie code de Cesar</span></a></li>
+    <li><a class="z"  href="5.pdf" target="content" onclick="hideDiv()"><span class="marquee">Jeu de Puissance 4</span></a></li>
+    <li><a class="z" href="6.pdf" target="content" onclick="hideDiv()"><span class="marquee">Site Web</span></a></li>
+    <li><a class="x" href="7.pdf" target="content" onclick="hideDiv()"><span class="marquee">Distributeur Automatique de nourriture pour chat</span></a></li>
+    <li><a class="x" href="8.pdf" target="content" onclick="hideDiv()"><span class="marquee">Véhicule a deux roues motrices</span></a></li>
+    <li><a class="y" href="9.pdf" target="content" onclick="hideDiv()"><span class="marquee">Etude de la base de donnée de la société fictive AUVER</span></a></li>
+    <li><a class="x" href="10.pdf" target="content" onclick="hideDiv()"><span class="marquee">Application IOS (transport de Clermont)</span></a></li>
 </ul>
 
     <iframe id="frame" name="content" src="" scrolling="no"></iframe>
 
 </div>
 
+<script>
+    function hideDiv() {
+        // Obtenir la référence de la div
+        const div3 = document.getElementById('div3');
 
+        // Modifier la propriété CSS pour masquer la div
+        div3.style.display = 'none';
+    }
+</script>
 
 </body>
 </html>
