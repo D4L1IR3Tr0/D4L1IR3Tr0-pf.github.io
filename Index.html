@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Portfolio</title>
 </head>
-<body>
+<body onload="openPopup()">
 
 <style>
 
@@ -21,20 +21,26 @@
         display: none;
         position: fixed;
         z-index: 999;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 200px;
+        padding: 20px;
+        background-color: transparent;
+        border-radius: 10px;
+        overflow: hidden;
     }
 
     #popup-content {
-        background-color: #fff;
-        width: 300px;
-        margin: 100px auto;
+        background-color: #ffb600;
+        color: #134d5d;
+        font-family: "Arial Rounded MT Bold", Gadget, sans-serif;
+        box-shadow: -5px 5px 0px #f36011, -10px 10px 0px #ffb600, -15px 15px 0px #219292;
+        border-radius: 10px;
         padding: 20px;
-        border-radius: 5px;
     }
+
+
 
     #close {
         float: right;
@@ -66,6 +72,9 @@
         color: #FFFFFF;
         text-shadow: -5px 5px 0px #f36011, -10px 10px 0px #ffb600, -15px 15px 0px #219292;
           }
+    #title:hover {
+        cursor: pointer;
+    }
 
 
 
@@ -203,11 +212,13 @@
     }
 </style>
 
+
+
 <div id="popup">
     <div id="popup-content">
         <span id="close" onclick="closePopup()">&times;</span>
-        <h3>Contenu de la popup</h3>
-        <p>Ceci est le contenu de la popup qui s'ouvre automatiquement.</p>
+        <h3>Hello Hello</h3>
+        <p>Maintenant on peut changer le theme de la page en appuiant directement sur le titre<br><br>Gros BISOUS</p>
     </div>
 </div>
 
@@ -259,11 +270,6 @@
         var popup = document.getElementById("popup");
         popup.style.display = "none";
     }
-
-    window.addEventListener("load", function() {
-        openPopup();
-    });
-
 
 
     function changeTheme() {
