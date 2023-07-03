@@ -34,6 +34,7 @@
     #popup-content {
         background-color: #ffb600;
         color: #134d5d;
+        text-align: center;
         font-family: "Arial Rounded MT Bold", Gadget, sans-serif;
         box-shadow: -5px 5px 0px #f36011, -10px 10px 0px #ffb600, -15px 15px 0px #219292;
         border-radius: 10px;
@@ -76,6 +77,9 @@
         cursor: pointer;
     }
 
+    #showMenu{
+        display: none;
+    }
 
 
     #div2{
@@ -94,10 +98,8 @@
         float: right;
         border-radius: 30px;
 
-        /* Apply the background color with transparency */
         background-color: rgba(255, 255, 255, 0.5);
 
-        /* Apply the blur effect */
         backdrop-filter: blur(8px);
 
     }
@@ -128,10 +130,11 @@
         width: 20%;
         background-color: #134d5d;
         float: left;
-
         -webkit-box-shadow: 5px 5px 14px 9px #000000;
         box-shadow: 5px 5px 14px 9px #000000;
         border-radius: 10px;
+        overflow-y: scroll;
+        max-height: 90%;
     }
 
     li {
@@ -201,30 +204,87 @@
         }
     }
 
-    @media(max-height: 650px){
-        #header{
+    @media(max-height: 650px) {
+        #header {
             height: 100px;
         }
 
-        #header h1{
+        #header h1 {
             font-size: 40px;
         }
     }
-</style>
 
+    @media(max-width: 850px){
+
+
+
+        #menu {
+            position: fixed;
+            left: -300px;
+            transition: left 0.3s ease;
+        }
+
+        .container {
+            display: inline-block;
+            cursor: pointer;
+            position: absolute;
+            left: 20px;
+            top:20px;
+
+        }
+
+        .bar1, .bar2, .bar3 {
+            width: 35px;
+            height: 5px;
+            margin: 6px 0;
+            transition: 0.4s;
+        }
+        .bar1{
+            background-color: #f36011;
+        }
+        .bar2{
+            background-color: #ffb600;
+        }
+        .bar3{
+            background-color: #219292;
+        }
+
+        .change .bar1 {
+            transform: translate(0, 11px) rotate(-45deg);
+        }
+
+        .change .bar2 {opacity: 0;}
+
+        .change .bar3 {
+            background-color: #ffb600;
+            transform: translate(0, -11px) rotate(45deg);
+        }
+
+
+    }
+
+
+</style>
 
 
 <div id="popup">
     <div id="popup-content">
         <span id="close" onclick="closePopup()">&times;</span>
-        <h3>Hello Hello</h3>
-        <p>Maintenant on peut changer le theme de la page en appuiant directement sur le titre<br><br>Gros BISOUS</p>
+        <h3>Bonjour</h3>
+        <p>Maintenant on peut changer le theme de la page en appuiant directement sur le titre<br><br>\(^ヮ^)/</p>
     </div>
 </div>
 
 <header id="header">
 
-<h1 id="title" onclick="changeTheme()">Portfolio</h1>
+    <div class="container" onclick="myFunction(this);showMenu()">
+        <div id="bar1" class="bar1"></div>
+        <div id="bar2" class="bar2"></div>
+        <div id="bar3" class="bar3"></div>
+    </div>
+
+
+    <h1 id="title" onclick="changeTheme()">Portfolio</h1>
 
 </header>
 
@@ -241,6 +301,7 @@
 
 <div id="div2">
 <ul id="menu">
+
     <li><a class="x" href="1.pdf" target="content" onclick="hideDiv()"><span class="marquee">Estimation pseudo aléatoire de Pi</span></a></li>
     <li><a class="x" href="2.pdf" target="content" onclick="hideDiv()"><span class="marquee">Simulateur pseudo aléatoire d’une population de lapins</span></a></li>
     <li><a class="x" href="3.pdf" target="content" onclick="hideDiv()"><span class="marquee">Simulateur pseudo aléatoire du jeu de la vie</span></a></li>
@@ -251,6 +312,7 @@
     <li><a class="x" href="8.pdf" target="content" onclick="hideDiv()"><span class="marquee">Véhicule a deux roues motrices</span></a></li>
     <li><a class="y" href="9.pdf" target="content" onclick="hideDiv()"><span class="marquee">Etude de la base de donnée de la société fictive AUVER</span></a></li>
     <li><a class="x" href="10.pdf" target="content" onclick="hideDiv()"><span class="marquee">Application IOS (transport de Clermont)</span></a></li>
+
 </ul>
 
     <iframe id="frame" name="content" src="" scrolling="no"></iframe>
@@ -258,9 +320,8 @@
 </div>
 
 
-
 <script>
-    var theme = True;
+    var theme = true;
     function openPopup() {
         var popup = document.getElementById("popup");
         popup.style.display = "block";
@@ -272,9 +333,13 @@
     }
 
 
+
     function changeTheme() {
         var body = document.body;
         var header = document.getElementById("header");
+        var bar1 = document.getElementById("bar1")
+        var bar2 = document.getElementById("bar2")
+        var bar3 = document.getElementById("bar3")
         var div1 = document.getElementById("div1");
         var div2 = document.getElementById("div2");
         var links = document.getElementsByTagName("a");
@@ -286,6 +351,10 @@
             for (var i = 0; i < links.length; i++) {
                 links[i].style.color = "#000000";
             }
+
+            bar1.style.backgroundColor="#ffffff";
+            bar2.style.backgroundColor="#ffffff";
+            bar3.style.backgroundColor="#ffffff";
 
             for (var i = 0; i < listItems.length; i++) {
                 listItems[i].addEventListener("mouseover", function () {
@@ -314,6 +383,10 @@
                 links[i].style.color = "";
             }
 
+            bar1.style.backgroundColor="";
+            bar2.style.backgroundColor="";
+            bar3.style.backgroundColor="";
+
             for (var i = 0; i < listItems.length; i++) {
                 listItems[i].addEventListener("mouseover", function () {
                     this.style.borderRadius = "10px";
@@ -329,7 +402,7 @@
             }
 
             header.style.background = "";
-            title.style.color = "f";
+            title.style.color = "";
             menu.style.backgroundColor = "";
             title.style.textShadow = "";
             body.style.backgroundImage = "";
@@ -341,7 +414,28 @@
         theme = !theme;
     }
 
+    var show = false;
+    function showMenu(){
+        var menu = document.getElementById("menu");
+        if (show == false) {
+            menu.style.left="0px";
+            show=true
+        }
 
+        else{
+            menu.style.left = "";
+            show=false
+        }
+    }
+
+    function myFunction(x) {
+        x.classList.toggle("change");
+    }
+
+    function hideDiv(){
+        var div =document.getElementById("div1");
+        div.style.display="none";
+    }
 
 </script>
 
